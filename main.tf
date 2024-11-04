@@ -19,13 +19,42 @@ resource "aws_instance" "bia-dev" {
     instance_type = "t3.micro"
     tags = {
       ambiente = "dev"
-      Name = "bia-dev"
+      Name = var.instance_name
     }
 
-    vpc_security_group_ids = ["sg-02f9520d9e3d4c1b1"]
+    vpc_security_group_ids = [aws_security_group.example.id]
 
     root_block_device {
         volume_size = 10
     }
+}
+
+resource "aws_security_group" "example" {
+  name = "bia-dev-tf"
+  description = "regras"
+  vpc_id = "vpc-0291fea3457442d47"
+
+  ingress {
+    description = "liberado 3001"
+    from_port   = 3001
+    to_port     = 3001
+    protocol    = "tcp"
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # egress {
+  #   from_port        = 0
+  #   to_port          = 0
+  #   protocol         = "-1"
+  #   cidr_blocks      = ["0.0.0.0/0"]
+  #   ipv6_cidr_blocks = ["::/0"]
+  # }
 }
 
