@@ -32,9 +32,9 @@
 #     id = "sg-03ac575d99beed41a"
 #     to = aws_security_group.bia_ec2
 # }
-import {
-    id = "sg-097535b2f600ac08a"
-    to = aws_security_group.bia_dev
-}
+# import {
+#   id = "sg-097535b2f600ac08a"
+#   to = aws_security_group.bia_dev
+# }
 
 

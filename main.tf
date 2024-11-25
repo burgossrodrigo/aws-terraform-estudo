@@ -6,6 +6,10 @@ resource "aws_instance" "bia_dev" {
     Name     = var.instance_name
   }
 
+  subnet_id                   = var.subnet_id
+  associate_public_ip_address = true
+  ipv6_address_count          = 1
+
   vpc_security_group_ids = [aws_security_group.bia_dev.id]
   iam_instance_profile   = aws_iam_instance_profile.role_acesso_ssm.name
 
@@ -13,6 +17,7 @@ resource "aws_instance" "bia_dev" {
     volume_size = 10
   }
 
+  key_name  = var.key_name
   user_data = file("user_data.sh")
 }
 
