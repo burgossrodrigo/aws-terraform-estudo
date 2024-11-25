@@ -10,8 +10,14 @@ variable "key_name" {
   default     = "bia_key"
 }
 
-variable "subnet_id" {
+variable "subnet_id_b" {
   type        = string
-  description = "ID da subnet"
+  description = "ID da subnet B"
   default     = "subnet-0e198d58388244c95"
+}
+
+variable "subnet_id_a" {
+  type        = string
+  description = "ID da subnet A"
+  default     = "subnet-09f7712bbec036f47"
 }

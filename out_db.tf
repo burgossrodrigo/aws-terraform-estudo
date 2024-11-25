@@ -7,7 +7,7 @@ resource "aws_db_instance" "bia" {
   allow_major_version_upgrade = null
   apply_immediately           = null
   auto_minor_version_upgrade  = true
-  availability_zone           = "us-east-1a"
+  # availability_zone           = "us-east-1a"
   backup_retention_period     = 1
   backup_target               = "region"
   backup_window               = "06:21-06:51"
@@ -17,7 +17,7 @@ resource "aws_db_instance" "bia" {
   custom_iam_instance_profile = null
   customer_owned_ip_enabled   = false
   db_name                     = null
-  db_subnet_group_name        = "default-vpc-0291fea3457442d47"
+  db_subnet_group_name        = aws_db_subnet_group.bia.name
   dedicated_log_volume        = false
   delete_automated_backups    = true
   deletion_protection         = false
@@ -72,4 +72,13 @@ resource "aws_db_instance" "bia" {
     aws_security_group.bia_db.id,
     aws_security_group.bia_dev.id
   ]
+}
+
+resource "aws_db_subnet_group" "bia" {
+  name = "bia_subnet_group"
+  subnet_ids = [var.subnet_id_a, var.subnet_id_b]
+
+  tags = {
+    name = "bia_subnet_group"
+  }
 }

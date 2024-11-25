@@ -6,7 +6,7 @@ resource "aws_instance" "bia_dev" {
     Name     = var.instance_name
   }
 
-  subnet_id                   = var.subnet_id
+  subnet_id                   = var.subnet_id_b
   associate_public_ip_address = true
   ipv6_address_count          = 1
 
