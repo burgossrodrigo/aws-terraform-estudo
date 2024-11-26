@@ -25,3 +25,9 @@ resource "aws_iam_role_policy_attachment" "ssm_managed_instance_core" {
     policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+resource "aws_iam_instance_profile" "ecs_node" {
+    name_prefix = "ecs-instance-role-tf-profile"
+    path = "/ecs/instance/"
+    role = aws_iam_role.ecs_instance_role.name
+}
+
