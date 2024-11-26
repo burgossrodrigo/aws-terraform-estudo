@@ -28,12 +28,17 @@
 #   value       = aws_instance.bia_dev.private_ip
 # }
 
-output "rds_endpoint" {
-  description = "Endpoint do banco de dados"
-  value       = aws_db_instance.bia.endpoint
-}
+# output "rds_endpoint" {
+#   description = "Endpoint do banco de dados"
+#   value       = aws_db_instance.bia.endpoint
+# }
 
-output "rds_secrets" {
-  description = "Secrets do banco de dados"
-  value      = tolist(aws_db_instance.bia.master_user_secret)[0].secret_arn
+# output "rds_secrets" {
+#   description = "Secrets do banco de dados"
+#   value      = tolist(aws_db_instance.bia.master_user_secret)[0].secret_arn
+# }
+
+output "bia_repo_url" {
+  description = "URL do repositório"
+  value       = aws_ecr_repository.bia.repository_url
 }
