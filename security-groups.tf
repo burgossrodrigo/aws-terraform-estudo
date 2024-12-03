@@ -48,39 +48,34 @@ resource "aws_security_group" "bia_dev" {
 # Please review these resources and move them into your main configuration files.
 
 # __generated__ by Terraform from "sg-09d39b47b99351e41"
+# aws_security_group.bia_db:
 resource "aws_security_group" "bia_db" {
+  name        = "bia-db"
   description = "database"
-  egress = [{
-    cidr_blocks      = ["0.0.0.0/0"]
-    description      = ""
-    from_port        = 0
-    ipv6_cidr_blocks = []
-    prefix_list_ids  = []
-    protocol         = "tcp"
-    security_groups  = []
-    self             = false
-    to_port          = 0
-  }]
-  ingress = [{
-    cidr_blocks      = ["0.0.0.0/0"]
-    description      = ""
-    from_port        = 5432
-    ipv6_cidr_blocks = []
-    prefix_list_ids  = []
-    protocol         = "tcp"
+  vpc_id      = "vpc-0291fea3457442d47"
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
     security_groups = [
-      aws_security_group.bia_dev.id,
-      aws_security_group.bia_ec2.id
+      "sg-0058a6fa7b99695d0",
+      "sg-0025abc56feef09cd",
+      "sg-082b4a5eec52e533a",
     ]
-    self    = false
-    to_port = 5432
-  }]
-  name                   = "bia-db"
-  name_prefix            = null
-  revoke_rules_on_delete = null
-  tags                   = {}
-  tags_all               = {}
-  vpc_id                 = "vpc-0291fea3457442d47"
+    self = false
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    self        = false
+  }
+
+  tags = {}
 }
 
 # __generated__ by Terraform

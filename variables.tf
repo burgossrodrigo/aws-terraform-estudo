@@ -1,7 +1,7 @@
 variable "instance_name" {
   type        = string
   description = "Nome da instancia EC2"
-  default     = "bia_dev-tf"
+  default     = "bia_dev_tf"
 }
 
 variable "key_name" {

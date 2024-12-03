@@ -70,7 +70,8 @@ resource "aws_db_instance" "bia" {
   username                              = "postgres"
   vpc_security_group_ids = [
     aws_security_group.bia_db.id,
-    aws_security_group.bia_dev.id
+    aws_security_group.bia_dev.id,
+    aws_security_group.bia_web.id
   ]
 }
 

@@ -2,8 +2,8 @@ resource "aws_autoscaling_group" "ecs" {
     name_prefix = "cluster-ecs-bia-asg-"
     vpc_zone_identifier = [var.subnet_id_b, var.subnet_id_a]
     min_size = 0
-    desired_capacity = 1
-    max_size = 2
+    desired_capacity = 0
+    max_size = 1
     health_check_grace_period = 0
     health_check_type = "EC2"
     protect_from_scale_in = false

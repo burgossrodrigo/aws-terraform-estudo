@@ -28,10 +28,10 @@
 #   value       = aws_instance.bia_dev.private_ip
 # }
 
-# output "rds_endpoint" {
-#   description = "Endpoint do banco de dados"
-#   value       = aws_db_instance.bia.endpoint
-# }
+output "rds_endpoint" {
+  description = "Endpoint do banco de dados"
+  value       = aws_db_instance.bia.endpoint
+}
 
 # output "rds_secrets" {
 #   description = "Secrets do banco de dados"
