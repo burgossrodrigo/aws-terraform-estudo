@@ -1,4 +1,4 @@
 locals {
-  vpc_id        = "vpc-0a1b2c3d4e5f6g7h8"
-  subnet_zona_b = "subnet-0e198d58388244c95"
+  vpc_id        = "vpc-0d84787c58a1fa2c0"
+  subnet_zona_b = "subnet-0aa98ddfa4a07b32d"
 }

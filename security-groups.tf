@@ -41,7 +41,7 @@ resource "aws_security_group" "bia_dev" {
   revoke_rules_on_delete = null
   tags                   = {}
   tags_all               = {}
-  vpc_id                 = "vpc-0291fea3457442d47"
+  vpc_id                 = "vpc-0d84787c58a1fa2c0"
 }
 
 # __generated__ by Terraform
@@ -52,7 +52,7 @@ resource "aws_security_group" "bia_dev" {
 resource "aws_security_group" "bia_db" {
   name        = "bia-db"
   description = "database"
-  vpc_id      = "vpc-0291fea3457442d47"
+  vpc_id      = "vpc-0d84787c58a1fa2c0"
 
   ingress {
     from_port   = 5432
@@ -60,10 +60,10 @@ resource "aws_security_group" "bia_db" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
     security_groups = [
-      "sg-0058a6fa7b99695d0",
-      "sg-0025abc56feef09cd",
-      "sg-082b4a5eec52e533a",
-    ]
+      aws_security_group.bia_web.id,
+      aws_security_group.bia_ec2.id,
+      aws_security_group.bia_alb.id
+      ]
     self = false
   }
 
@@ -111,7 +111,7 @@ resource "aws_security_group" "bia_ec2" {
   revoke_rules_on_delete = null
   tags                   = {}
   tags_all               = {}
-  vpc_id                 = "vpc-0291fea3457442d47"
+  vpc_id                 = "vpc-0d84787c58a1fa2c0"
 }
 
 # __generated__ by Terraform from "sg-0de65af3bfc79df7f"
@@ -164,7 +164,7 @@ resource "aws_security_group" "bia_alb" {
   revoke_rules_on_delete = null
   tags                   = {}
   tags_all               = {}
-  vpc_id                 = "vpc-0291fea3457442d47"
+  vpc_id                 = "vpc-0d84787c58a1fa2c0"
 }
 
 # __generated__ by Terraform from "sg-0926fa37745dddb49"
@@ -217,7 +217,7 @@ resource "aws_security_group" "bia_web" {
   revoke_rules_on_delete = null
   tags                   = {}
   tags_all               = {}
-  vpc_id                 = "vpc-0291fea3457442d47"
+  vpc_id                 = "vpc-0d84787c58a1fa2c0"
 }
 
 

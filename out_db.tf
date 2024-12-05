@@ -37,7 +37,7 @@ resource "aws_db_instance" "bia" {
   identifier_prefix                     = null
   instance_class                        = "db.t3.micro"
   iops                                  = null
-  kms_key_id                            = "arn:aws:kms:us-east-1:601139476230:key/267552e8-e621-4b5c-ba76-d839ade56f1b"
+  kms_key_id                            = "arn:aws:kms:us-east-1:307946647826:key/11c82a1c-7bd2-42f3-be72-e98a7d63eff8"
   license_model                         = "postgresql-license"
   maintenance_window                    = "thu:05:35-thu:06:05"
   manage_master_user_password           = true
@@ -52,7 +52,7 @@ resource "aws_db_instance" "bia" {
   parameter_group_name                  = "default.postgres16"
   password                              = null # sensitive
   performance_insights_enabled          = true
-  performance_insights_kms_key_id       = "arn:aws:kms:us-east-1:601139476230:key/267552e8-e621-4b5c-ba76-d839ade56f1b"
+  performance_insights_kms_key_id       = "arn:aws:kms:us-east-1:307946647826:key/11c82a1c-7bd2-42f3-be72-e98a7d63eff8"
   performance_insights_retention_period = 7
   port                                  = 5432
   publicly_accessible                   = false

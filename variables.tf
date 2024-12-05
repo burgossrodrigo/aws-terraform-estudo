@@ -13,11 +13,11 @@ variable "key_name" {
 variable "subnet_id_b" {
   type        = string
   description = "ID da subnet B"
-  default     = "subnet-0e198d58388244c95"
+  default     = "subnet-0aa98ddfa4a07b32d"
 }
 
 variable "subnet_id_a" {
   type        = string
   description = "ID da subnet A"
-  default     = "subnet-09f7712bbec036f47"
+  default     = "subnet-01f3ed43330d1f97d"
 }
