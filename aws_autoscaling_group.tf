@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "ecs" {
-    name_prefix = "cluster-ecs-bia-asg-"
+    name_prefix = "cluster-bia-tf-"
     vpc_zone_identifier = [var.subnet_id_b, var.subnet_id_a]
     min_size = 0
     desired_capacity = 1
@@ -19,7 +19,7 @@ resource "aws_autoscaling_group" "ecs" {
 
     tag {
         key = "Name"
-        value = "cluster-ecs-bia-asg"
+        value = "cluster-bia-tf"
         propagate_at_launch = true
     }
 

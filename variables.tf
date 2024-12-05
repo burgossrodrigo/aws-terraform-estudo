@@ -21,3 +21,14 @@ variable "subnet_id_a" {
   description = "ID da subnet A"
   default     = "subnet-01f3ed43330d1f97d"
 }
+
+variable "vpc_id" {
+  type        = string
+  description = "ID da VPC"
+  default     = "vpc-0d84787c58a1fa2c0"
+}
+
+# locals {
+#   vpc_id        = "vpc-0d84787c58a1fa2c0"
+#   subnet_zona_b = "subnet-0aa98ddfa4a07b32d"
+# }

@@ -1,15 +1,15 @@
-resource "aws_ecs_task_definition" "bia_web" {
+resource "aws_ecs_task_definition" "bia_rodrigo" {
   family        = "task_def_bia"
   network_mode  = "bridge"
   task_role_arn = aws_iam_role.ecs_task_role.arn
 
   container_definitions = jsonencode([{
-    name      = "bia_web"
+    name      = "bia_rodrigo"
     image     = "${aws_ecr_repository.bia.repository_url}:latest"
     essential = true
     portMappings = [{
       containerPort = 8080
-      hostPort      = 80
+      hostPort      = 0
     }]
     cpu               = 1024
     memoryReservation = 400
